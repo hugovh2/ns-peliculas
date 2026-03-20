@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth" style="scroll-padding-top: 100px;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NS Películas | Alta Performance e Tecnologia no DF</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Especialistas em instalação de películas automotivas, arquitetônicas e de segurança no Distrito Federal. Proteção solar, conforto térmico e atendimento em domicílio.">
+    <meta name="keywords" content="Insulfilm em Brasília, Película automotiva DF, Película de segurança DF, Controle solar residencial, Películas arquitetônicas Brasília, NS Películas alta performance">
+    
+    <!-- Google Fonts: Montserrat (Headings) & Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS (via CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#00152b', // Tom profundo e luxuoso
+                        navyLight: '#00254d',
+                        gold: '#C5A059',
+                        goldHover: '#d4b373',
+                        ice: '#F8F9FA',
+                        carbon: '#0a0a0a',
+                        carbonLighter: '#1a1a1a'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'hero-video': "url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop')", // Casa luxuosa moderna
+                        'noise': "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="antialiased selection:bg-gold selection:text-navy">
+
+    <!-- Texture Overlay -->
+    <div class="fixed inset-0 bg-noise z-50 pointer-events-none"></div>
+
+    <!-- Navbar -->
+    <header class="fixed w-full top-0 z-50 transition-all duration-500 border-b border-transparent" id="navbar">
+        <div class="absolute inset-0 bg-navy/80 backdrop-blur-xl opacity-0 transition-opacity duration-500" id="nav-bg"></div>
+        
+        <!-- Menu Mobile Dropdown (Overlay) -->
+        <div id="mobile-menu" class="fixed inset-0 h-screen bg-navy/98 backdrop-blur-2xl z-40 flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-500 lg:hidden">
+            <nav class="flex flex-col items-center gap-8 text-center w-full px-6 mt-16">
+                <a href="#beneficios" class="mobile-link text-white hover:text-gold text-2xl font-heading font-bold uppercase tracking-wide transition-colors">Benefícios</a>
+                <a href="#solucoes" class="mobile-link text-white hover:text-gold text-2xl font-heading font-bold uppercase tracking-wide transition-colors">Soluções</a>
+                <a href="#seguranca" class="mobile-link text-white hover:text-gold text-2xl font-heading font-bold uppercase tracking-wide transition-colors">Segurança</a>
+                <a href="#faq" class="mobile-link text-white hover:text-gold text-2xl font-heading font-bold uppercase tracking-wide transition-colors">FAQ</a>
+                <a href="#contato" class="mobile-link mt-6 bg-gold text-navy hover:bg-white font-bold py-4 px-10 rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(197,160,89,0.3)] w-full max-w-xs">
+                    Solicitar Orçamento
+                </a>
+            </nav>
+        </div>
+
+        <!-- Conteúdo do Topo (Fica por cima do Menu Overlay por causa do z-50) -->
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center relative z-50">
+            <!-- WRAPPER DA LOGO -->
+            <a href="#" class="flex items-center cursor-pointer relative h-20 w-[280px] md:w-[340px] lg:w-[400px] shrink-0">
+                <!-- LOGO: Mantido a posição e tamanho pedidos, mas com correção Tailwind em vez de inline @media e o mix-blend-lighten para apagar o fundo -->
+                <img src="assets/images/ns-peliculas.png" alt="NS Películas" class="absolute -left-[37px] md:left-0 top-[60%] -translate-y-1/2 h-[14rem] w-auto max-w-none object-contain transition-transform duration-300 hover:scale-105 origin-left mix-blend-lighten" onerror="this.src='https://via.placeholder.com/250x100/00152b/C5A059?text=NS+Pel%C3%ADculas'">
+            </a>
+            
+            <!-- Menu Desktop -->
+            <nav class="hidden lg:flex gap-10 text-sm font-semibold tracking-wide text-white/70 uppercase">
+                <a href="#beneficios" class="hover:text-gold transition-colors">Benefícios</a>
+                <a href="#solucoes" class="hover:text-gold transition-colors">Soluções</a>
+                <a href="#seguranca" class="hover:text-gold transition-colors">Segurança</a>
+                <a href="#faq" class="hover:text-gold transition-colors">FAQ</a>
+            </nav>
+            
+            <!-- CTA Desktop -->
+            <a href="#contato" class="hidden md:inline-flex bg-white hover:bg-gold text-navy font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
+                Solicitar Orçamento
+            </a>
+
+            <!-- Botão Hambúrguer Mobile -->
+            <button id="mobile-menu-btn" class="lg:hidden text-white hover:text-gold text-3xl transition-colors focus:outline-none ml-auto p-2">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- 1️⃣ HERO (Primeira Tela) -->
+    <section class="relative min-h-[100vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-hero-video bg-cover bg-center bg-fixed scale-105" style="filter: brightness(0.5);"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-navy/30 via-navy/60 to-navy"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/50 to-transparent"></div>
+        
+        <div class="container mx-auto px-6 relative z-10 pt-52 md:pt-48 lg:pt-32 pb-20">
+            <div class="max-w-4xl reveal active">
+                
+                <h1 class="font-heading text-5xl md:text-7xl font-black leading-[1.1] tracking-tight mb-8 text-white">
+                    Conforto térmico, privacidade e <span class="text-gradient-gold">proteção para seu ambiente</span>
+                </h1>
+                
+                <p class="text-lg md:text-2xl text-white/80 mb-12 max-w-2xl font-light leading-relaxed">
+                    Películas de alta performance que reduzem o calor, bloqueiam os raios UV e valorizam seu ambiente — com instalação profissional e garantia de 5 anos.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-5">
+                    <a href="https://wa.me/5561995660982?text=Olá! Gostaria de solicitar um orçamento para meu imóvel." target="_blank" class="bg-gold hover:bg-goldHover text-navy font-bold text-lg py-5 px-10 rounded-full transition-all duration-300 shadow-[0_0_40px_rgba(197,160,89,0.3)] flex items-center justify-center gap-3 group hover:scale-105">
+                        👉 Solicitar orçamento no WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🧩 PROBLEMA → SOLUÇÃO -->
+    <section class="py-24 bg-navyLight/20 relative border-y border-white/5">
+        <div class="container mx-auto px-6 max-w-4xl text-center reveal">
+            <h2 class="font-heading text-3xl md:text-5xl font-bold mb-8 text-white">Seu ambiente está quente, <span class="text-gold">exposto e desconfortável?</span></h2>
+            <p class="text-lg text-white/70 leading-relaxed mb-8">
+                O excesso de calor, a falta de privacidade e a incidência direta do sol podem comprometer seu conforto, desgastar móveis e aumentar o uso de ar-condicionado.
+            </p>
+            <div class="bg-navy border border-gold/30 p-8 rounded-2xl shadow-xl inline-block text-center relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gold/10 blur-3xl rounded-full"></div>
+                <p class="text-xl font-medium text-gold leading-relaxed m-0 relative z-10">
+                    Com a aplicação de películas profissionais, você resolve tudo isso de forma rápida, sem obras e com resultado imediato.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ⚡ BENEFÍCIOS -->
+    <section id="beneficios" class="py-32 relative overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gold/5 blur-[120px] rounded-full pointer-events-none z-0"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="mb-12 md:mb-20 max-w-3xl reveal">
+                <span class="text-gold font-bold tracking-widest uppercase text-sm mb-4 block">Alta Performance</span>
+                <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
+                    Mais conforto, economia e <br><span class="text-gold">proteção no dia a dia.</span>
+                </h2>
+            </div>
+
+            <!-- Grelha atualizada -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 md:gap-6 auto-rows-auto md:auto-rows-[280px]">
+
+                <!-- 1. Redução de Calor -->
+                <div class="lg:col-span-5 lg:row-span-2 glass-panel p-6 md:p-10 rounded-[2rem] relative overflow-hidden group reveal hover:-translate-y-2 transition-all duration-500 border border-white/5 hover:border-gold/40 min-h-[240px] md:min-h-0 flex flex-col">
+                    <div class="absolute -right-4 -bottom-6 md:-right-8 md:-bottom-10 text-[10rem] md:text-[16rem] font-black text-white/[0.02] group-hover:text-gold/[0.05] transition-colors duration-700 pointer-events-none leading-none z-0">01</div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-gold/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0"></div>
+
+                    <div class="flex flex-col h-full justify-between relative z-10 flex-1">
+                        <div class="w-14 h-14 md:w-16 md:h-16 mb-6 md:mb-0 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-gold text-2xl md:text-3xl group-hover:scale-110 group-hover:bg-gold group-hover:text-navy transition-all duration-500 shadow-lg">
+                            <i class="fa-solid fa-temperature-arrow-down"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-heading font-black text-2xl md:text-3xl text-white mb-3 md:mb-4">Redução de Calor</h3>
+                            <p class="text-white/60 text-base md:text-lg leading-relaxed">Bloqueio imediato da energia solar, mantendo os ambientes perfeitamente frescos e confortáveis mesmo nos dias mais quentes do ano.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Proteção UV -->
+                <div class="lg:col-span-4 glass-panel p-6 md:p-8 rounded-[2rem] relative overflow-hidden group reveal reveal-delay-1 hover:-translate-y-2 transition-all duration-500 border border-white/5 hover:border-gold/40 min-h-[200px] md:min-h-0 flex flex-col">
+                    <div class="absolute -right-2 -bottom-4 md:-right-4 md:-bottom-8 text-[8rem] md:text-[12rem] font-black text-white/[0.02] group-hover:text-gold/[0.05] transition-colors duration-700 pointer-events-none leading-none z-0">02</div>
+                    <div class="flex flex-col h-full justify-between relative z-10 flex-1">
+                        <div class="text-gold text-3xl md:text-4xl mb-4 md:mb-0 group-hover:scale-110 transition-transform duration-500"><i class="fa-solid fa-sun"></i></div>
+                        <div>
+                            <h3 class="font-heading font-bold text-xl md:text-2xl text-white mb-2">Proteção UV</h3>
+                            <p class="text-white/60 text-sm leading-relaxed">Preserva a cor de móveis e pisos e protege a sua saúde contra 99% dos raios nocivos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Privacidade -->
+                <div class="lg:col-span-3 glass-panel p-6 md:p-8 rounded-[2rem] relative overflow-hidden group reveal reveal-delay-2 hover:-translate-y-2 transition-all duration-500 border border-white/5 hover:border-gold/40 min-h-[200px] md:min-h-0 flex flex-col">
+                    <div class="absolute -right-2 -bottom-4 md:-right-4 md:-bottom-8 text-[8rem] md:text-[12rem] font-black text-white/[0.02] group-hover:text-gold/[0.05] transition-colors duration-700 pointer-events-none leading-none z-0">03</div>
+                    <div class="flex flex-col h-full justify-between relative z-10 flex-1">
+                        <div class="text-white text-3xl md:text-4xl mb-4 md:mb-0 group-hover:scale-110 transition-transform duration-500"><i class="fa-solid fa-eye-slash"></i></div>
+                        <div>
+                            <h3 class="font-heading font-bold text-xl md:text-2xl text-white mb-2">Privacidade</h3>
+                            <p class="text-white/60 text-sm leading-relaxed">Mais discrição sem perder a entrada de luz natural.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Economia de Energia -->
+                <div class="lg:col-span-7 glass-panel p-6 md:p-10 rounded-[2rem] relative overflow-hidden group reveal hover:-translate-y-2 transition-all duration-500 border border-white/5 hover:border-gold/40 bg-gradient-to-r from-gold/5 to-transparent min-h-[220px] md:min-h-0 flex flex-col">
+                    <div class="absolute right-0 top-0 h-full w-1/2 bg-gradient-to-l from-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0"></div>
+                    <div class="absolute -right-4 -bottom-6 md:-right-4 md:-bottom-10 text-[10rem] md:text-[14rem] font-black text-white/[0.02] group-hover:text-gold/[0.05] transition-colors duration-700 pointer-events-none leading-none z-0">04</div>
+
+                    <div class="flex flex-col sm:flex-row h-full items-start sm:items-center gap-6 md:gap-8 relative z-10 flex-1">
+                        <div class="w-16 h-16 md:w-20 md:h-20 shrink-0 rounded-full border border-gold/30 bg-gold/10 backdrop-blur-sm flex items-center justify-center text-gold text-2xl md:text-3xl group-hover:bg-gold group-hover:text-navy group-hover:scale-110 transition-all duration-500 shadow-[0_0_30px_rgba(197,160,89,0.15)]">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-heading font-bold text-2xl md:text-3xl text-white mb-2 md:mb-3">Economia de energia</h3>
+                            <p class="text-white/60 text-base md:text-lg leading-relaxed">Menor uso de ar-condicionado no dia a dia, gerando economia real e rápida recuperação do investimento.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Segurança -->
+                <div class="lg:col-span-12 h-auto md:h-[180px] glass-panel p-6 md:p-10 rounded-[2rem] relative overflow-hidden group reveal hover:-translate-y-2 transition-all duration-500 border border-white/5 hover:border-gold/40 flex flex-col justify-center">
+                    <div class="absolute -right-4 -bottom-6 md:-right-4 md:-bottom-12 text-[10rem] md:text-[14rem] font-black text-white/[0.02] group-hover:text-gold/[0.05] transition-colors duration-700 pointer-events-none leading-none z-0">05</div>
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5 md:gap-10 relative z-10 w-full">
+                        <div class="w-14 h-14 md:w-16 md:h-16 shrink-0 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white text-2xl md:text-3xl group-hover:text-navy group-hover:bg-white group-hover:scale-110 transition-all duration-500">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <div class="text-left flex-1">
+                            <h3 class="font-heading font-bold text-xl md:text-2xl text-white mb-2">Segurança Reforçada</h3>
+                            <p class="text-white/60 text-sm md:text-base max-w-4xl leading-relaxed">Películas que ajudam a conter estilhaços em caso de impacto ou quebra, protegendo o seu património e garantindo a segurança de todos no ambiente.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 🏆 DIFERENCIAL & PROVA VISUAL (Slider 1: Controle Solar) -->
+    <section class="py-32 relative bg-navyLight/10 border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <div class="reveal">
+                    <h2 class="font-heading text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
+                        Por que escolher a <br><span class="text-gold">NS Películas?</span>
+                    </h2>
+                    <p class="text-white/70 text-lg mb-8 leading-relaxed max-w-lg">
+                        Trabalhamos com materiais de alta qualidade e instalação profissional, garantindo um resultado duradouro e acabamento impecável.
+                    </p>
+                    
+                    <ul class="space-y-4 mb-10 text-white/80 font-medium text-lg">
+                        <li class="flex items-center gap-4"><i class="fa-solid fa-check text-gold"></i> Garantia de 5 anos</li>
+                        <li class="flex items-center gap-4"><i class="fa-solid fa-check text-gold"></i> Instalação especializada</li>
+                        <li class="flex items-center gap-4"><i class="fa-solid fa-check text-gold"></i> Atendimento personalizado</li>
+                        <li class="flex items-center gap-4"><i class="fa-solid fa-check text-gold"></i> Acabamento de alto padrão</li>
+                        <li class="flex items-center gap-4"><i class="fa-solid fa-check text-gold"></i> Soluções sob medida para cada cliente</li>
+                    </ul>
+                </div>
+
+                <div class="reveal reveal-delay-1">
+                    <div class="mb-6">
+                        <h3 class="font-heading text-2xl font-bold text-white">Resultados visíveis no conforto térmico</h3>
+                        <p class="text-white/50 text-sm mt-2">Arraste para ver a diferença que a película faz bloqueando a luz intensa.</p>
+                    </div>
+                    
+                    <!-- SLIDER 1 -->
+                    <div class="relative w-full aspect-square md:aspect-[4/3] rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] group select-none cursor-ew-resize bg-navy compare-slider">
+                        <!-- Imagem COM película (fundo) -->
+                        <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=1200&auto=format&fit=crop" alt="Visão com Película" class="absolute inset-0 w-full h-full object-cover pointer-events-none" style="filter: brightness(0.7) contrast(1.1) saturate(1.1);">
+                        
+                        <!-- Etiqueta COM película - AJUSTADO PARA MOBILE -->
+                        <div class="absolute bottom-3 right-3 md:bottom-6 md:right-6 bg-black/50 backdrop-blur-md text-white font-semibold text-[10px] md:text-xs px-3 md:px-4 py-1.5 md:py-2 rounded-full border border-white/10 shadow-lg z-0 whitespace-nowrap">
+                            <span class="text-gold mr-1">●</span> Com Película Solar
+                        </div>
+
+                        <!-- Overlay SEM película (topo) -->
+                        <div class="absolute inset-0 w-1/2 overflow-hidden border-r border-white/50 shadow-[5px_0_15px_rgba(0,0,0,0.5)] z-10 compare-overlay">
+                            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=1200&auto=format&fit=crop" alt="Visão sem Película" class="absolute top-0 left-0 h-full object-cover pointer-events-none max-w-none compare-img-before" style="filter: brightness(1.3) contrast(0.85) saturate(1.2);">
+                            
+                            <!-- Etiqueta SEM película - AJUSTADO PARA MOBILE -->
+                            <div class="absolute bottom-3 left-3 md:bottom-6 md:left-6 bg-white/90 backdrop-blur-md text-navy font-semibold text-[10px] md:text-xs px-3 md:px-4 py-1.5 md:py-2 rounded-full border border-black/10 shadow-lg whitespace-nowrap">
+                                Sem Película
+                            </div>
+                        </div>
+
+                        <!-- Handle Control -->
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 backdrop-blur-xl rounded-full flex items-center justify-center z-20 border border-white/30 shadow-lg transition-transform hover:scale-110 compare-handle">
+                            <div class="w-1.5 h-6 bg-white rounded-full mx-0.5"></div>
+                            <div class="w-1.5 h-6 bg-white rounded-full mx-0.5"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 🛡️ NOVA SEÇÃO: PELÍCULA DE SEGURANÇA (Slider 2) -->
+    <section id="seguranca" class="py-32 relative bg-navy border-t border-white/5 overflow-hidden">
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-gold/5 blur-[100px] rounded-full pointer-events-none z-0"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- 📸 PROVA VISUAL (Slider 2) - Esquerda no Desktop -->
+                <div class="reveal order-2 lg:order-1">
+                    <div class="mb-6 lg:hidden">
+                        <h3 class="font-heading text-2xl font-bold text-white">Demonstração de Impacto</h3>
+                        <p class="text-white/50 text-sm mt-2">Arraste para comparar o efeito do vidro quebrado com e sem a película protetora.</p>
+                    </div>
+                    
+                    <!-- SLIDER 2 -->
+                    <div class="relative w-full aspect-square md:aspect-[4/3] rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] group select-none cursor-ew-resize bg-navy compare-slider">
+                        <!-- Imagem COM película de segurança (fundo) - Adicionado filtro mais escuro para simular a película -->
+                        <img src="assets/images/vidro-sem-estar-quebrado.png" alt="Vidro residencial protegido com película" class="absolute inset-0 w-full h-full object-cover pointer-events-none" style="filter: brightness(0.65) contrast(1.15) saturate(1.1);">
+                        
+                        <!-- Etiqueta COM película - AJUSTADO PARA MOBILE E IMPEDIDO QUEBRA DE LINHA -->
+                        <div class="absolute bottom-3 right-3 md:bottom-6 md:right-6 bg-gold/90 backdrop-blur-md text-navy font-bold text-[10px] md:text-xs px-3 md:px-4 py-1.5 md:py-2 rounded-full border border-gold shadow-[0_0_15px_rgba(197,160,89,0.5)] z-0 flex items-center gap-1.5 md:gap-2 whitespace-nowrap">
+                            <i class="fa-solid fa-shield-check"></i> COM PELÍCULA (Protegido)
+                        </div>
+
+                        <!-- Overlay SEM película (topo) - Imagem local do vidro quebrado -->
+                        <div class="absolute inset-0 w-1/2 overflow-hidden border-r border-gold/50 shadow-[5px_0_15px_rgba(197,160,89,0.3)] z-10 compare-overlay">
+                            <img src="assets/images/vidro quebrado.png" alt="Vidro quebrado caindo com buraco" class="absolute top-0 left-0 h-full object-cover pointer-events-none max-w-none compare-img-before" style="filter: brightness(1.1) contrast(1.1);">
+                            
+                            <!-- Etiqueta SEM película - AJUSTADO PARA MOBILE E IMPEDIDO QUEBRA DE LINHA -->
+                            <div class="absolute bottom-3 left-3 md:bottom-6 md:left-6 bg-red-600/90 backdrop-blur-md text-white font-bold text-[10px] md:text-xs px-3 md:px-4 py-1.5 md:py-2 rounded-full border border-red-500 shadow-lg flex items-center gap-1.5 md:gap-2 whitespace-nowrap">
+                                <i class="fa-solid fa-triangle-exclamation"></i> SEM PELÍCULA (Perigoso)
+                            </div>
+                        </div>
+
+                        <!-- Handle Control -->
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-gold backdrop-blur-xl rounded-full flex items-center justify-center z-20 border border-white/50 shadow-[0_0_20px_rgba(197,160,89,0.5)] transition-transform hover:scale-110 compare-handle">
+                            <div class="w-1.5 h-6 bg-navy rounded-full mx-0.5"></div>
+                            <div class="w-1.5 h-6 bg-navy rounded-full mx-0.5"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 📝 CONTEÚDO (Texto) - Direita no Desktop -->
+                <div class="reveal order-1 lg:order-2">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/10 border border-gold/30 text-gold text-xs font-bold tracking-widest uppercase mb-6">
+                        <i class="fa-solid fa-shield-halved"></i> Proteção Patrimonial
+                    </div>
+                    
+                    <h2 class="font-heading text-4xl md:text-5xl font-black text-white mb-4 leading-tight">
+                        Película de Segurança <br><span class="text-gradient-gold">Transparente 7 Mil</span>
+                    </h2>
+                    
+                    <p class="text-white/70 text-lg mb-8 leading-relaxed">
+                        Reforço invisível contra impactos e invasões, mantendo os estilhaços no lugar em caso de quebra e protegendo o seu património sem alterar a estética.
+                    </p>
+                    
+                    <!-- Grelha de Benefícios (Condensada) -->
+                    <div class="grid grid-cols-2 gap-4 mb-10">
+                        <div class="glass-panel p-5 rounded-2xl border border-white/5 hover:border-gold/30 transition-colors">
+                            <i class="fa-solid fa-shield text-gold text-2xl mb-3"></i>
+                            <h4 class="text-white font-bold text-base mb-1">Anti-Estilhaço</h4>
+                            <p class="text-white/50 text-xs">Retém os vidros partidos, evitando graves acidentes.</p>
+                        </div>
+                        <div class="glass-panel p-5 rounded-2xl border border-white/5 hover:border-gold/30 transition-colors">
+                            <i class="fa-solid fa-lock text-gold text-2xl mb-3"></i>
+                            <h4 class="text-white font-bold text-base mb-1">Proteção Extra</h4>
+                            <p class="text-white/50 text-xs">Dificulta e atrasa tentativas de invasão e roubo.</p>
+                        </div>
+                        <div class="glass-panel p-5 rounded-2xl border border-white/5 hover:border-gold/30 transition-colors">
+                            <i class="fa-solid fa-eye text-gold text-2xl mb-3"></i>
+                            <h4 class="text-white font-bold text-base mb-1">Invisível</h4>
+                            <p class="text-white/50 text-xs">Não escurece o ambiente nem altera a visibilidade.</p>
+                        </div>
+                        <div class="glass-panel p-5 rounded-2xl border border-white/5 hover:border-gold/30 transition-colors">
+                            <i class="fa-solid fa-sun text-gold text-2xl mb-3"></i>
+                            <h4 class="text-white font-bold text-base mb-1">Bloqueio UV</h4>
+                            <p class="text-white/50 text-xs">Filtra até 96% dos raios que desbotam os móveis.</p>
+                        </div>
+                    </div>
+
+                    <!-- Especificações Técnicas (Minimalistas) -->
+                    <div class="flex items-center justify-between border-t border-white/10 pt-8 pb-2">
+                        <div class="text-center">
+                            <span class="block text-gold font-heading font-black text-2xl md:text-3xl">175<span class="text-lg">µ</span></span>
+                            <span class="text-white/40 text-[10px] md:text-xs uppercase tracking-wider font-semibold">Espessura</span>
+                        </div>
+                        <div class="w-px h-10 bg-white/10"></div>
+                        <div class="text-center">
+                            <span class="block text-white font-heading font-black text-2xl md:text-3xl">Alta</span>
+                            <span class="text-white/40 text-[10px] md:text-xs uppercase tracking-wider font-semibold">Resistência</span>
+                        </div>
+                        <div class="w-px h-10 bg-white/10"></div>
+                        <div class="text-center">
+                            <span class="block text-white font-heading font-black text-2xl md:text-3xl">5<span class="text-lg"> Anos</span></span>
+                            <span class="text-white/40 text-[10px] md:text-xs uppercase tracking-wider font-semibold">Garantia</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 🎯 TIPOS DE PELÍCULAS -->
+    <section id="solucoes" class="py-24 relative bg-navyLight/20 border-y border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-16 items-start">
+                
+                <div class="lg:w-1/3 lg:sticky lg:top-32 reveal mb-4 lg:mb-0 z-10">
+                    <h2 class="font-heading text-4xl md:text-5xl font-black text-white mb-6">Soluções ideais <br>para <span class="text-gold">cada necessidade</span></h2>
+                    <p class="text-white/60 text-lg mb-10">Trabalhamos exclusivamente com linhas premium que garantem durabilidade, estética perfeita e performance térmica real.</p>
+                    <a href="https://wa.me/5561995660982?text=Olá! Gostaria de falar com um especialista sobre a película ideal." target="_blank" class="inline-flex bg-gold text-navy font-bold py-4 px-8 rounded-full hover:bg-white transition-colors shadow-lg shadow-gold/20 items-center gap-2">
+                        👉 Falar com especialista
+                    </a>
+                </div>
+
+                <div class="lg:w-2/3 w-full flex flex-col gap-6 relative z-20">
+                    
+                    <!-- 1. Espelhada -->
+                    <div class="relative p-8 md:p-10 rounded-3xl border border-white/10 hover:border-gold/50 transition-all duration-500 reveal overflow-hidden group min-h-[220px] flex flex-col justify-end cursor-pointer shadow-lg hover:shadow-gold/10">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-all duration-700 group-hover:scale-105" alt="Fachada Espelhada">
+                        <div class="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/60 to-transparent"></div>
+                        <div class="relative z-10">
+                            <h3 class="font-heading text-2xl font-bold text-gold mb-2 group-hover:text-white transition-colors">Espelhada</h3>
+                            <p class="text-white/80 max-w-md text-lg">Alta rejeição de calor com excelente privacidade externa durante o dia.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 2. Fumê -->
+                    <div class="relative p-8 md:p-10 rounded-3xl border border-white/10 hover:border-gold/50 transition-all duration-500 reveal overflow-hidden group min-h-[220px] flex flex-col justify-end cursor-pointer shadow-lg hover:shadow-gold/10">
+                        <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=1200&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-all duration-700 group-hover:scale-105" alt="Carro Película Fumê">
+                        <div class="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/60 to-transparent"></div>
+                        <div class="relative z-10">
+                            <h3 class="font-heading text-2xl font-bold text-white mb-2 group-hover:text-gold transition-colors">Fumê (G20 / G35)</h3>
+                            <p class="text-white/80 max-w-md text-lg">Equilíbrio entre conforto térmico, estética e visibilidade.</p>
+                        </div>
+                    </div>
+
+                    <!-- 3. Nano Cerâmica (Premium) -->
+                    <div class="relative p-8 md:p-10 rounded-3xl border border-gold/40 hover:border-gold transition-all duration-500 reveal overflow-hidden group min-h-[220px] flex flex-col justify-end cursor-pointer shadow-[0_0_25px_rgba(197,160,89,0.15)]">
+                        <div class="absolute top-0 right-0 bg-gradient-to-r from-gold to-goldHover text-navy text-xs font-black px-4 py-2 rounded-bl-2xl z-20 shadow-lg">PREMIUM</div>
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-all duration-700 group-hover:scale-105" alt="Sala Nano Cerâmica">
+                        <div class="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/50 to-transparent"></div>
+                        <div class="relative z-10">
+                            <h3 class="font-heading text-2xl font-bold text-gold mb-2 group-hover:text-white transition-colors">Nano Cerâmica</h3>
+                            <p class="text-white/90 max-w-md text-lg">Tecnologia avançada com alta performance térmica sem escurecer o vidro.</p>
+                        </div>
+                    </div>
+
+                    <!-- 4. Decorativa -->
+                    <div class="relative p-8 md:p-10 rounded-3xl border border-white/10 hover:border-gold/50 transition-all duration-500 reveal overflow-hidden group min-h-[220px] flex flex-col justify-end cursor-pointer shadow-lg hover:shadow-gold/10">
+                        <img src="https://unsplash.com/photos/o0aygXDzegs/download?force=true&w=1200" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-all duration-700 group-hover:scale-105" alt="Película Decorativa Jateada">
+                        <div class="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/60 to-transparent"></div>
+                        <div class="relative z-10">
+                            <h3 class="font-heading text-2xl font-bold text-white mb-2 group-hover:text-gold transition-colors">Decorativa (jateada)</h3>
+                            <p class="text-white/80 max-w-md text-lg">Privacidade com acabamento elegante para ambientes internos.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🏠 APLICAÇÕES -->
+    <section id="aplicacoes" class="py-24 relative bg-navyLight/20 border-y border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <h2 class="font-heading text-4xl md:text-5xl font-black text-white mb-4">Atendemos diferentes <span class="text-gold">tipos de projeto</span></h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- Residencial Card -->
+                <div class="cinematic-card relative rounded-[2rem] overflow-hidden aspect-[4/3] group cursor-pointer reveal">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="Casa Luxuosa">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy via-navy/40 to-transparent"></div>
+                    
+                    <div class="absolute inset-0 p-10 flex flex-col justify-end">
+                        <h3 class="font-heading text-4xl font-black text-white mb-3">Residencial</h3>
+                        <p class="text-white/80 text-lg max-w-md">Mais conforto, privacidade e proteção para sua casa.</p>
+                    </div>
+                </div>
+                
+                <!-- Comercial Card -->
+                <div class="cinematic-card relative rounded-[2rem] overflow-hidden aspect-[4/3] group cursor-pointer reveal reveal-delay-1">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="Prédio Comercial">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy via-navy/40 to-transparent"></div>
+                    
+                    <div class="absolute inset-0 p-10 flex flex-col justify-end">
+                        <h3 class="font-heading text-4xl font-black text-gold mb-3">Comercial</h3>
+                        <p class="text-white/80 text-lg max-w-md">Ambientes mais agradáveis, produtivos e com melhor apresentação.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ⭐ PROVA SOCIAL -->
+    <section class="py-24 relative">
+        <div class="container mx-auto px-6 text-center reveal">
+            <h2 class="font-heading text-3xl md:text-5xl font-bold mb-16 text-white">O que nossos <span class="text-gold">clientes dizem</span></h2>
+            
+            <div class="max-w-4xl mx-auto glass-panel p-10 md:p-14 rounded-3xl border border-white/10 relative shadow-2xl">
+                <i class="fa-solid fa-quote-left absolute top-8 left-8 text-5xl text-white/5"></i>
+                <div class="flex gap-2 justify-center text-gold mb-8 text-xl">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-white/90 text-xl md:text-3xl italic mb-10 leading-relaxed font-light">
+                    “Instalei na minha casa e a diferença no calor foi imediata. Atendimento excelente e acabamento perfeito.”
+                </p>
+                <div class="flex items-center justify-center gap-4">
+                    <div class="w-14 h-14 bg-navyLight border border-gold/30 rounded-full flex items-center justify-center font-bold text-gold text-xl shadow-lg">C</div>
+                    <div class="text-left">
+                        <p class="font-bold text-lg m-0 text-white">Cliente Verificado</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ❓ FAQ -->
+    <section id="faq" class="py-32 bg-navyLight/20 relative border-t border-white/5">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-heading text-4xl md:text-5xl font-black text-white">Dúvidas <span class="text-gold">Frequentes</span></h2>
+            </div>
+
+            <div class="reveal">
+                
+                <div class="faq-item py-5">
+                    <button class="faq-btn w-full flex items-center justify-between text-left focus:outline-none group">
+                        <span class="font-heading font-bold text-lg text-white group-hover:text-gold transition-colors">As películas realmente fazem diferença no calor?</span>
+                        <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/50 group-hover:border-gold group-hover:text-gold transition-colors shrink-0 faq-icon-container"><i class="fa-solid fa-plus faq-icon transition-transform duration-300"></i></div>
+                    </button>
+                    <div class="faq-content"><div class="faq-inner"><p class="text-white/60 leading-relaxed pt-3 pb-2 text-base">Sim. Utilizamos películas de alta performance projetadas para reduzir significativamente a entrada de calor, proporcionando mais conforto térmico e eficiência no ambiente.</p></div></div>
+                </div>
+
+                <div class="faq-item py-5">
+                    <button class="faq-btn w-full flex items-center justify-between text-left focus:outline-none group">
+                        <span class="font-heading font-bold text-lg text-white group-hover:text-gold transition-colors">A estética do ambiente é comprometida?</span>
+                        <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/50 group-hover:border-gold group-hover:text-gold transition-colors shrink-0 faq-icon-container"><i class="fa-solid fa-plus faq-icon transition-transform duration-300"></i></div>
+                    </button>
+                    <div class="faq-content"><div class="faq-inner"><p class="text-white/60 leading-relaxed pt-3 pb-2 text-base">Não. Trabalhamos com linhas que preservam a transparência e valorizam o visual do espaço, além de opções para quem busca mais privacidade sem perder sofisticação.</p></div></div>
+                </div>
+
+                <div class="faq-item py-5">
+                    <button class="faq-btn w-full flex items-center justify-between text-left focus:outline-none group">
+                        <span class="font-heading font-bold text-lg text-white group-hover:text-gold transition-colors">Como escolher a película ideal?</span>
+                        <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/50 group-hover:border-gold group-hover:text-gold transition-colors shrink-0 faq-icon-container"><i class="fa-solid fa-plus faq-icon transition-transform duration-300"></i></div>
+                    </button>
+                    <div class="faq-content"><div class="faq-inner"><p class="text-white/60 leading-relaxed pt-3 pb-2 text-base">Cada projeto exige uma solução específica. Analisamos o ambiente e indicamos a película ideal para equilibrar conforto térmico, estética e privacidade.</p></div></div>
+                </div>
+
+                <div class="faq-item py-5">
+                    <button class="faq-btn w-full flex items-center justify-between text-left focus:outline-none group">
+                        <span class="font-heading font-bold text-lg text-white group-hover:text-gold transition-colors">Qual o diferencial das películas utilizadas?</span>
+                        <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/50 group-hover:border-gold group-hover:text-gold transition-colors shrink-0 faq-icon-container"><i class="fa-solid fa-plus faq-icon transition-transform duration-300"></i></div>
+                    </button>
+                    <div class="faq-content"><div class="faq-inner"><p class="text-white/60 leading-relaxed pt-3 pb-2 text-base">Não trabalhamos com películas comuns. Utilizamos materiais profissionais com tecnologia avançada, maior durabilidade e acabamento superior — padrão muito acima das opções convencionais.</p></div></div>
+                </div>
+
+                <div class="faq-item py-5">
+                    <button class="faq-btn w-full flex items-center justify-between text-left focus:outline-none group">
+                        <span class="font-heading font-bold text-lg text-white group-hover:text-gold transition-colors">Qual a durabilidade?</span>
+                        <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/50 group-hover:border-gold group-hover:text-gold transition-colors shrink-0 faq-icon-container"><i class="fa-solid fa-plus faq-icon transition-transform duration-300"></i></div>
+                    </button>
+                    <div class="faq-content"><div class="faq-inner"><p class="text-white/60 leading-relaxed pt-3 pb-2 text-base">As películas possuem alta durabilidade e garantia, mantendo desempenho e estética ao longo do tempo.</p></div></div>
+                </div>
+
+                <div class="faq-item py-5">
+                    <button class="faq-btn w-full flex items-center justify-between text-left focus:outline-none group">
+                        <span class="font-heading font-bold text-lg text-white group-hover:text-gold transition-colors">A instalação é segura?</span>
+                        <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/50 group-hover:border-gold group-hover:text-gold transition-colors shrink-0 faq-icon-container"><i class="fa-solid fa-plus faq-icon transition-transform duration-300"></i></div>
+                    </button>
+                    <div class="faq-content"><div class="faq-inner"><p class="text-white/60 leading-relaxed pt-3 pb-2 text-base">Sim. A aplicação é feita com técnica profissional, sem riscos ao vidro e com acabamento de alto padrão.</p></div></div>
+                </div>
+
+                <div class="faq-item py-5">
+                    <button class="faq-btn w-full flex items-center justify-between text-left focus:outline-none group">
+                        <span class="font-heading font-bold text-lg text-white group-hover:text-gold transition-colors">Vocês trabalham com proteção de vidro?</span>
+                        <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/50 group-hover:border-gold group-hover:text-gold transition-colors shrink-0 faq-icon-container"><i class="fa-solid fa-plus faq-icon transition-transform duration-300"></i></div>
+                    </button>
+                    <div class="faq-content"><div class="faq-inner"><p class="text-white/60 leading-relaxed pt-3 pb-2 text-base">Sim. Também oferecemos películas de segurança (como a Transparente 7 Mil) que reforçam o vidro e aumentam a proteção contra impactos, evitando estilhaços perigosos e invasões.</p></div></div>
+                </div>
+
+                <div class="faq-item py-5">
+                    <button class="faq-btn w-full flex items-center justify-between text-left focus:outline-none group">
+                        <span class="font-heading font-bold text-lg text-white group-hover:text-gold transition-colors">Como solicitar atendimento?</span>
+                        <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/50 group-hover:border-gold group-hover:text-gold transition-colors shrink-0 faq-icon-container"><i class="fa-solid fa-plus faq-icon transition-transform duration-300"></i></div>
+                    </button>
+                    <div class="faq-content">
+                        <div class="faq-inner">
+                            <p class="text-white/60 leading-relaxed pt-3 pb-2 text-base">Entre em contato pelo WhatsApp e envie as informações do seu ambiente. Retornamos com a melhor recomendação e proposta.</p>
+                            <p class="text-gold font-bold mt-2">👉 Atendimento rápido e personalizado</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 📲 CTA FINAL MASSIÇO -->
+    <section id="contato" class="py-32 bg-gold relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-white opacity-[0.03] rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+        
+        <div class="container mx-auto px-6 relative z-10 text-center reveal">
+            <h2 class="font-heading text-5xl md:text-6xl font-black mb-6 tracking-tight text-navy uppercase leading-none">
+                Solicite seu orçamento agora
+            </h2>
+            <p class="text-xl md:text-2xl mb-12 max-w-2xl mx-auto font-medium text-navy/80">
+                Fale diretamente conosco e receba um atendimento rápido e personalizado para o seu projeto
+            </p>
+            <a href="https://wa.me/5561995660982?text=Olá! Quero solicitar um orçamento." target="_blank" class="inline-flex items-center gap-4 bg-navy hover:bg-black text-white font-bold text-xl py-6 px-12 rounded-full transition-all duration-300 shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:-translate-y-2">
+                👉 Chamar no WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- 📍 RODAPÉ LUXO -->
+    <footer class="bg-black pt-20 pb-10 text-sm border-t border-white/10 relative">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-12 mb-16">
+                
+                <!-- CONTAINER DO RODAPÉ AUMENTADO PARA A LOGO (max-w-md / max-w-lg) -->
+                <div class="text-center md:text-left max-w-md lg:max-w-lg">
+                    <div class="flex items-center justify-center md:justify-start mb-6">
+                        <!-- LOGO DO RODAPÉ: ALTURA AUMENTADA E MAX-W-FULL PARA CRESCER LIVREMENTE -->
+                        <img src="assets/images/ns-peliculas.png" alt="NS Películas" class="h-[12rem] md:h-[14rem] lg:h-[16rem] w-auto max-w-full object-contain mix-blend-lighten" onerror="this.style.display='none'">
+                    </div>
+                    <p class="text-white/50 text-base leading-relaxed">
+                        Películas de controle solar e proteção de alta performance
+                    </p>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <h4 class="font-heading font-bold text-white mb-6 uppercase tracking-widest text-xs">Contato Rápido</h4>
+                    <ul class="space-y-4 text-white/60 text-base">
+                        <li class="flex items-center justify-center md:justify-end gap-3 hover:text-white transition-colors">
+                            <i class="fa-brands fa-whatsapp text-gold"></i> WhatsApp: (61) 99566-0982
+                        </li>
+                        <li class="flex items-center justify-center md:justify-end gap-3 hover:text-white transition-colors">
+                            <i class="fa-solid fa-map-pin text-gold"></i> Atendimento em Brasília e região
+                        </li>
+                        <li>
+                            <a href="https://instagram.com/ns.peliculas" target="_blank" class="flex items-center justify-center md:justify-end gap-3 hover:text-gold transition-colors">
+                                <i class="fa-brands fa-instagram text-gold"></i> Instagram: @ns.peliculas
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 text-center text-white/30 text-xs flex flex-col md:flex-row justify-between items-center font-medium">
+                <p>&copy; 2024 NS Películas. Todos os direitos reservados.</p>
+                <p class="mt-2 md:mt-0 uppercase tracking-widest text-[10px]">Desenvolvido para Excelência</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão WhatsApp Flutuante Minimalista -->
+    <a href="https://wa.me/5561995660982?text=Olá! Gostaria de um orçamento." target="_blank" class="fixed bottom-8 right-8 w-14 h-14 bg-white hover:bg-gray-100 rounded-full flex items-center justify-center text-[#25D366] text-3xl shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-50 transition-all hover:scale-110 group">
+        <i class="fa-brands fa-whatsapp group-hover:rotate-12 transition-transform"></i>
+        <span class="absolute inset-0 rounded-full border-2 border-white opacity-0 group-hover:animate-[ping_1.5s_cubic-bezier(0,0,0.2,1)_infinite]"></span>
+    </a>
+
+    <!-- Scripts do Menu Mobile -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const icon = btn ? btn.querySelector('i') : null;
+            const links = document.querySelectorAll('.mobile-link');
+
+            function toggleMenu() {
+                if(!menu || !icon) return;
+                
+                const isOpen = menu.classList.contains('opacity-100');
+                if (isOpen) {
+                    // Fechar menu
+                    menu.classList.remove('opacity-100', 'pointer-events-auto');
+                    menu.classList.add('opacity-0', 'pointer-events-none');
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                    document.body.style.overflow = ''; // Restaura o scroll
+                } else {
+                    // Abrir menu
+                    menu.classList.remove('opacity-0', 'pointer-events-none');
+                    menu.classList.add('opacity-100', 'pointer-events-auto');
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                    document.body.style.overflow = 'hidden'; // Remove o scroll do fundo
+                }
+            }
+
+            if (btn) {
+                btn.addEventListener('click', toggleMenu);
+            }
+            
+            // Fecha o menu sempre que um link for clicado
+            links.forEach(link => {
+                link.addEventListener('click', toggleMenu);
+            });
+        });
+    </script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>

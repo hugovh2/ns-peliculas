@@ -1,0 +1,102 @@
+/* Base & Scrollbar */
+body { 
+    background-color: #00152b; 
+    color: #F8F9FA; 
+    overflow-x: hidden; 
+}
+
+::-webkit-scrollbar { 
+    width: 10px; 
+}
+
+::-webkit-scrollbar-track { 
+    background: #00152b; 
+}
+
+::-webkit-scrollbar-thumb { 
+    background: #C5A059; 
+    border-radius: 5px; 
+}
+
+/* Utils */
+.text-glow { 
+    text-shadow: 0 0 30px rgba(197, 160, 89, 0.4); 
+}
+
+.bg-noise { 
+    opacity: 0.03; 
+    mix-blend-mode: overlay; 
+    pointer-events: none; 
+}
+
+/* Glassmorphism Refinado */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Gradient Text */
+.text-gradient-gold {
+    background: linear-gradient(135deg, #C5A059 0%, #FCE8B2 50%, #C5A059 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    animation: shine 5s linear infinite;
+}
+
+@keyframes shine { 
+    to { 
+        background-position: 200% center; 
+    } 
+}
+
+/* Cinematic Hover Cards */
+.cinematic-card img { 
+    transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1); 
+}
+
+.cinematic-card:hover img { 
+    transform: scale(1.05); 
+}
+
+/* Reveal Animations */
+.reveal { 
+    opacity: 0; 
+    transform: translateY(40px); 
+    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1); 
+}
+
+.reveal.active { 
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+.reveal-delay-1 { 
+    transition-delay: 0.1s; 
+}
+
+.reveal-delay-2 { 
+    transition-delay: 0.2s; 
+}
+
+/* FAQ Lines */
+.faq-item { 
+    border-bottom: 1px solid rgba(255,255,255,0.1); 
+}
+
+.faq-content { 
+    display: grid; 
+    grid-template-rows: 0fr; 
+    transition: grid-template-rows 0.4s ease; 
+}
+
+.faq-content.open { 
+    grid-template-rows: 1fr; 
+}
+
+.faq-inner { 
+    overflow: hidden; 
+}
