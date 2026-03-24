@@ -100,3 +100,72 @@ sliders.forEach(slider => {
     window.addEventListener('mousemove', updateSlider);
     window.addEventListener('touchmove', updateSlider, { passive: true });
 });
+
+// Counter Animation
+const counters = document.querySelectorAll('.counter');
+const countSpeed = 200;
+
+const animateCounter = (counter) => {
+    const target = +counter.getAttribute('data-target');
+    const count = +counter.innerText;
+    const inc = target / countSpeed;
+
+    if (count < target) {
+        counter.innerText = Math.ceil(count + inc);
+        setTimeout(() => animateCounter(counter), 20);
+    } else {
+        counter.innerText = target;
+    }
+};
+
+// Trigger counters when section is visible
+const counterSection = document.querySelector('.stat-card')?.closest('section');
+if (counterSection) {
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                counters.forEach(counter => animateCounter(counter));
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    counterObserver.observe(counterSection);
+}
+
+// Magnetic Button Effect
+const magneticBtns = document.querySelectorAll('.magnetic-btn');
+magneticBtns.forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+    });
+    
+    btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate(0, 0)';
+    });
+});
+
+// Parallax Effect for Hero
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const parallaxElements = document.querySelectorAll('.parallax-layer');
+    parallaxElements.forEach(el => {
+        const speed = el.dataset.speed || 0.5;
+        el.style.transform = `translateY(${scrolled * speed}px)`;
+    });
+});
+
+// Enhanced Text Reveal Animation
+const textRevealLines = document.querySelectorAll('.text-reveal-line');
+const textObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, { threshold: 0.1 });
+
+textRevealLines.forEach(line => textObserver.observe(line));
