@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nspeliculas.com.br/sitemap.xml
